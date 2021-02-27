@@ -18,6 +18,7 @@ public class OAuthAttributes {
     private String email;
     private String picture;
 
+    // attribute정보를 map으로 저장하고 있기 때문에 값을 하나씩 받기 위해 of구현
     public static OAuthAttributes of(String registrationId,
                                      String userNameAttributeName,
                                      Map<String, Object> attributes) {
@@ -28,7 +29,7 @@ public class OAuthAttributes {
     private static OAuthAttributes ofGoogle(String userNameAttributeName,
                                             Map<String, Object> attributes) {
         return OAuthAttributes.builder()
-                .name((String) attributes.get("name"))
+                .name((String) attributes.get("name")) // key값 name
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
