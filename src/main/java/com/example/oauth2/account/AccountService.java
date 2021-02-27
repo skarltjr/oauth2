@@ -56,7 +56,7 @@ public class AccountService implements OAuth2UserService<OAuth2UserRequest, OAut
         //인증된 객체(Account)에 대한 정보를 담은 SessionAccount객체를 세션에 저장
         httpSession.setAttribute("user", new SessionAccount(account));
 
-        return new DefaultOAuth2User(
+        return new DefaultOAuth2User(                           //즉 account.getRoleKey() = ROLE_GUEST
                 Collections.singleton(new SimpleGrantedAuthority(account.getRoleKey())),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey());
