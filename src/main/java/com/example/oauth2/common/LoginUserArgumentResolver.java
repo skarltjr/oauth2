@@ -28,6 +28,6 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
         return httpSession.getAttribute("user");
-        // 파라미터에 전달할 객체를 생성
+        // 파라미터에 전달할 객체를 생성 -> account service의 httpSession.setAttribute("user", new SessionAccount(account));로 저장된 객체를
     }
 }
