@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -33,7 +34,7 @@ public class EventController {
     private final EventRepository eventRepository;
 
     @PostMapping
-    public ResponseEntity createEvent(@LoginUser SessionAccount account, @RequestBody EventDto eventDto
+    public ResponseEntity createEvent(@LoginUser SessionAccount account, @RequestBody @Valid  EventDto eventDto
             ,Errors errors) {
         if (errors.hasErrors()) {
             EntityModel<Errors> error1 = ErrorResource.modelOf(errors);
