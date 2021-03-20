@@ -26,11 +26,11 @@ public class Index {
     private final AccountRepository accountRepository;
 
 
-    @GetMapping("/")
+  /*  @GetMapping("/")
     @ResponseBody
     public String first() {
         return "hello";
-    }
+    }*/
 
     /**
      * - 즉 로그인은 구글로그인을 통해 + 세션에 정보저장 + 로그인하기는 href="/oauth2/authorization/google"링크로
@@ -38,7 +38,7 @@ public class Index {
      * 그럼 이때는 다음 상황으로 전이가능한 링크를 추가하여 리턴
      * - 만약 로그인하지않은. account가 null이라면 로그인하기 링크를 추가
      */
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Model model, @LoginUser SessionAccount account) {
 
         if (account != null) {

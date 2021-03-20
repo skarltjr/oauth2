@@ -21,7 +21,8 @@ public class Account {
     @Column(nullable = false)
     private String email;
 
-    @Column
+    @Lob
+    @Basic(fetch = FetchType.EAGER)
     private String picture;
 
     @Enumerated(EnumType.STRING)
